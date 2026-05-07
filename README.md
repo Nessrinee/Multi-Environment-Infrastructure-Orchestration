@@ -32,7 +32,7 @@ Terraform modules, Kubernetes manifests, Helm charts, and CI automation.
 terraform init
 terraform plan
 terraform apply
-helm upgrade --install mpleo ./chart_helm -f values_mpleo.yml
+helm upgrade --install name_project ./chart_helm -f values.yml
 kubectl apply -f kubernetes_file/
 ```
 
@@ -47,7 +47,6 @@ kubectl apply -f kubernetes_file/
 
 ## 🏗️ Architecture
 
-The diagram is generated automatically from Mermaid source in CI.
 
 ![Automation architecture](docs/architecture.svg)
 
@@ -68,7 +67,7 @@ The diagram is generated automatically from Mermaid source in CI.
 
 ## 📐 Design principles
 
-- **Environment parity** — same deployment patterns across `prod`, `preprod`, and `test`
+- **Environment parity** —  deployment patterns across `prod`, `preprod`, and `test`
 - **Infrastructure as code first** — reproducible infrastructure with Terraform modules
 - **Composable deployments** — Kubernetes manifests and Helm charts remain modular
 - **Automation over manual ops** — CI pipeline generates and tracks architecture artifacts
@@ -101,7 +100,7 @@ automation_orchestration-master/
 cd automation_orchestration-master/preprod
 
 # 2) Provision infrastructure (example path)
-cd Terraform_use/onprem_lab
+cd Terraform_use/onprem
 terraform init && terraform plan && terraform apply
 
 # 3) Deploy application resources (example path)
